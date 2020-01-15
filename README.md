@@ -1,6 +1,5 @@
-# 3LineMaps.com
 
-We make custom maps for mobile, print, web and tv.  Contact us at:  https://RobLabs.com
+We make custom maps for mobile, print, web and tv.  See our offerings or contact us at:  https://RobLabs.com
 
 
 <img alt="README-3LineMaps.com_2.png" src="assets/README-3LineMaps.com_2.png" width="25%" height="" >
