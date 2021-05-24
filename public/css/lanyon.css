@@ -256,7 +256,7 @@ a.sidebar-nav-item:focus {
 }
 
 @media print {
-  .sidebar-toggle {
+  .sidebar-toggle, .masthead, .pagination {
     display: none;
   }
 }
