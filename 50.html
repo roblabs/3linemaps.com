@@ -6,14 +6,13 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
 
-    <!-- https://fonts.google.com/specimen/Montserrat -->
     <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Montserrat">
+              href="https://fonts.googleapis.com/css?family=Montserrat">     <!-- https://fonts.google.com/specimen/Montserrat -->
 
     <style>
-
       #map {
-          height: 600px;
+        width: 100%;
+        height: 100vh;
       }
 
       a:link, a:visited {
@@ -147,7 +146,7 @@ wbc50.push( { coordinate: new mapkit.Coordinate(33.0265, -116.792713), id: "30",
 wbc50.push( { coordinate: new mapkit.Coordinate(33.088384, -117.223737), id: "31", name: "Mule Deer Trail to Denk Mountain", auid: "", apple: "https://maps.apple.com/?ll=33.08838385430518,-117.22373727187212&q=Mule%20Deer%20Trail%20to%20Denk%20Mountain", google: "https://www.google.com/maps/place/33.08838385430518,-117.22373727187212", city: "San Marcos", zip: "92078", distance: "4.5", elevation: "790", comments: "Multiple starting points and trails in this area."} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.067628, -117.065686), id: "32", name: "Mule Hill Trail", auid: "", apple: "https://maps.apple.com/?ll=33.067628476399776,-117.06568569690269&q=Mule%20Hill%20Trail", google: "https://www.google.com/maps/place/33.067628476399776,-117.06568569690269", city: "Escondido", zip: "92025", distance: "6.3", elevation: "131", comments: "Trail heads east from parking lot"} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.344809, -116.871579), id: "33", name: "Observatory Trail Overlook", auid: "", apple: "https://maps.apple.com/?ll=33.344809164698304,-116.87157865146013&q=Observatory%20Trail%20Overlook", google: "https://www.google.com/maps/place/33.344809164698304,-116.87157865146013", city: "Palomar", zip: "92060", distance: "5", elevation: "1000", comments: ""} )
-wbc50.push( { coordinate: new mapkit.Coordinate(33.104394, -116.856804), id: "34", name: "Pamo Valley", auid: "", apple: "https://maps.apple.com/?ll=33.10439356455478,-116.85680414084447&q=Pamo%20Valley", google: "https://www.google.com/maps/place/33.10439356455478,-116.85680414084447", city: "Ramona", zip: "92065", distance: "6.6", elevation: "450", comments: "Head north alon Pamo Road"} )
+wbc50.push( { coordinate: new mapkit.Coordinate(33.104394, -116.856804), id: "34", name: "Pamo Valley", auid: "", apple: "https://maps.apple.com/?ll=33.10439356455478,-116.85680414084447&q=Pamo%20Valley", google: "https://www.google.com/maps/place/33.10439356455478,-116.85680414084447", city: "Ramona", zip: "92065", distance: "6.6", elevation: "450", comments: "Head north along Pamo Road"} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.216587, -116.934189), id: "35", name: "Paradise Mountain Trail", auid: "", apple: "https://maps.apple.com/?ll=33.21658697675208,-116.9341893750136&q=Paradise%20Mountain%20Trail", google: "https://www.google.com/maps/place/33.21658697675208,-116.9341893750136", city: "Valley Center", zip: "92082", distance: "8.2", elevation: "1860", comments: "Do not hike in the summer months."} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.051587, -117.076771), id: "36", name: "Piedras Pintadas Trailhead", auid: "16356544923531200903", apple: "https://maps.apple.com/?auid=16356544923531200903", google: "https://www.google.com/maps/place/33.051587,-117.076771", city: "San Diego", zip: "92127", distance: "3.7", elevation: "295", comments: ""} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.079869, -117.16571), id: "37", name: "Questhaven Road Nature Trail", auid: "", apple: "https://maps.apple.com/?ll=33.07986944465701,-117.16570964907655&q=Questhaven%20Road%20Nature%20Trail", google: "https://www.google.com/maps/place/33.07986944465701,-117.16570964907655", city: "Escondido", zip: "92029", distance: "2.7", elevation: "485", comments: "Multiple trails to choose."} )
@@ -186,13 +185,16 @@ var landmarkAnnotationCallout = {
 var annotations = wbc50.map(function(landmark) {
     var annotation = new mapkit.MarkerAnnotation(landmark.coordinate, {
         callout: landmarkAnnotationCallout,
-        color: "#f4a460"
+        color: "#f4a46088"
     });
     annotation.landmark = landmark;
     return annotation;
 });
 
 var map = new mapkit.Map("map");
+map.showsScale   = mapkit.FeatureVisibility.Visible;
+map.showsCompass = mapkit.FeatureVisibility.Visible;
+
 var region = new mapkit.CoordinateRegion(
                  new mapkit.Coordinate(33.06695, -117.06414),  // centered near Mule Hill
                  new mapkit.CoordinateSpan(1.0, 1.0)           // empircally computed; add out to the center
