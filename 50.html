@@ -54,6 +54,10 @@
           font-size: 14px;
       }
 
+      .landmark map-links {
+          font-size: 12px;
+      }
+
       .landmark section p {
           margin: 5px 0;
       }
@@ -211,7 +215,8 @@ function calloutForLandmarkAnnotation(annotation) {
     div.className = "landmark";
 
     var title = div.appendChild(document.createElement("h1"));
-    title.textContent = annotation.landmark.name + " — " + annotation.landmark.distance + " mi" + ", " + annotation.landmark.elevation + " ft";
+    var elevation = parseInt(annotation.landmark.elevation).toLocaleString();
+    title.textContent = annotation.landmark.name + " — " + annotation.landmark.distance + " mi" + " · " + elevation + " ft";
 
     var section = div.appendChild(document.createElement("section"));
 
@@ -222,20 +227,30 @@ function calloutForLandmarkAnnotation(annotation) {
     var link = section.appendChild(document.createElement("p"));
     link.className = "map-links";
 
+    // Weather.gov from NOAA
+    var imgN = link.appendChild(document.createElement("img"));
+    imgN.src = "/i/NOAA_logo.svg"
+    var a = link.appendChild(document.createElement("a"));
+    a.href = "https://forecast.weather.gov/MapClick.php"
+               + "?lon=" + annotation.landmark.coordinate.longitude
+               + "&lat=" + annotation.landmark.coordinate.latitude;
+    a.setAttribute('target', '_blank');
+    a.append(imgN, "Weather.gov ");
+
     // Apple Maps text
     var imgA = link.appendChild(document.createElement("img"));
-    imgA.src = "https://upload.wikimedia.org/wikipedia/commons/1/17/AppleMaps_logo.svg"
+    imgA.src = "/i/AppleMaps_logo.svg"
     var a = link.appendChild(document.createElement("a"));
     a.href = annotation.landmark.apple;
-    a.append(imgA, " Apple Maps");
+    a.append(imgA, " Apple");
 
     // Google Maps
     var imgG = link.appendChild(document.createElement("img"));
-    imgG.src = "https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg"
+    imgG.src = "/i/Google_Maps_icon_%282020%29.svg"
     var a = link.appendChild(document.createElement("a"));
     a.href = annotation.landmark.google;
     a.setAttribute('target', '_blank');
-    a.append(imgG, "Google Maps");
+    a.append(imgG, "Google");
 
     return div;
 }
