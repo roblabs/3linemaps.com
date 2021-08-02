@@ -164,7 +164,7 @@ wbc50.push( { coordinate: new mapkit.Coordinate(32.940853, -116.980588), id: "44
 wbc50.push( { coordinate: new mapkit.Coordinate(32.97541, -117.015442), id: "45", name: "Tooth Rock Trail", auid: "", apple: "https://maps.apple.com/?ll=32.97540959632033,-117.0154420054487&q=Tooth%20Rock%20Trail", google: "https://www.google.com/maps/place/32.97540959632033,-117.0154420054487", city: "Poway", zip: "92064", distance: "2.7", elevation: "459", comments: "Important:  Stay off private land."} )
 wbc50.push( { coordinate: new mapkit.Coordinate(32.980982, -117.051296), id: "46", name: "Twin Peaks Trail", auid: "", apple: "https://maps.apple.com/?ll=32.98098219264712,-117.05129571897166&q=Twin%20Peaks%20Trail", google: "https://www.google.com/maps/place/32.98098219264712,-117.05129571897166", city: "Poway", zip: "92064", distance: "1.6", elevation: "597", comments: ""} )
 wbc50.push( { coordinate: new mapkit.Coordinate(32.966828, -117.080848), id: "47", name: "Van Damm Mountain", auid: "", apple: "https://maps.apple.com/?ll=32.96682834934771,-117.08084829959506&q=Van%20Damm%20Mountain", google: "https://www.google.com/maps/place/32.96682834934771,-117.08084829959506", city: "Poway", zip: "92064", distance: "2.7", elevation: "823", comments: ""} )
-wbc50.push( { coordinate: new mapkit.Coordinate(33.208861, -117.228487), id: "48", name: "Vista Conservancy Nature Trail", auid: "14724012751092236915", apple: "https://maps.apple.com/?auid=14724012751092236915", google: "https://www.google.com/maps/place/33.208861,-117.228487", city: "Vista", zip: "92081", distance: "1.5", elevation: "100", comments: ""} )
+wbc50.push( { coordinate: new mapkit.Coordinate(33.2089506, -117.2341021), id: "48", name: "Vista Conservancy Nature Trail", auid: "8199521802796861011", apple: "https://maps.apple.com/?auid=8199521802796861011", google: "https://www.google.com/maps/place/33.2089506,-117.2341021", city: "Vista", zip: "92081", distance: "1.5", elevation: "100", comments: ""} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.001106, -116.75454), id: "49", name: "West Side Road", auid: "", apple: "https://maps.apple.com/?ll=33.00110636400261,-116.75453965485872&q=West%20Side%20Road", google: "https://www.google.com/maps/place/33.00110636400261,-116.75453965485872", city: "Ramona", zip: "92065", distance: "4.5", elevation: "859", comments: "Not recommended during summer months"} )
 wbc50.push( { coordinate: new mapkit.Coordinate(33.346368, -117.026255), id: "50", name: "Wilderness Gardens Preserve", auid: "11582247172563097173", apple: "https://maps.apple.com/?auid=11582247172563097173", google: "https://www.google.com/maps/place/33.346368,-117.026255", city: "Pala", zip: "92059", distance: "3.4", elevation: "282", comments: ""} )
 
@@ -191,6 +191,7 @@ var annotations = wbc50.map(function(landmark) {
         callout: landmarkAnnotationCallout,
         color: "#f4a46088"  /* SandyBrown with a slight opacity */
     });
+    annotation.title = landmark.id;
     annotation.landmark = landmark;
     return annotation;
 });
