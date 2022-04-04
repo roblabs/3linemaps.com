@@ -5,7 +5,7 @@
       {
         "appID": "J7V35W7ES8.com.3linemaps",
         "paths": [
-          "*"
+          "/*"
         ]
       }
     ]
